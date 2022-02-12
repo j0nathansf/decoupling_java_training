@@ -8,12 +8,12 @@ import java.util.Scanner;
 public class HumanPlayer implements Player {
 
     private final Logger logger = LoggerFactory.getLogger("player");
-    private Scanner sc = new Scanner(System.in);
 
     @Override
     public long askNextGuess() {
         System.out.println("Nombre :");
-        long number = this.sc.nextLong();
+        Scanner sc = new Scanner(System.in);
+        long number = sc.nextInt();
         return number;
     }
 
