@@ -14,6 +14,8 @@ public class FilteredLogger implements Logger {
 
     @Override
     public void log(String message) {
-        this.delegate.log(message);
+        if (this.condition.test(message)) {
+            this.delegate.log(message);
+        }
     }
 }
