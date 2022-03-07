@@ -22,9 +22,9 @@ public class ComputerPlayer implements Player {
     public void respond(boolean lowerOrGreater) {
         logger.log((lowerOrGreater) ? "Le nombre est plus petit" : "Le nombre est plus grand");
         if (lowerOrGreater) {
-            this.min = this.n + 1;
+            this.max = this.n;
         } else {
-            this.max = this.n - 1;
+            this.min = this.n;
         }
     }
 }
