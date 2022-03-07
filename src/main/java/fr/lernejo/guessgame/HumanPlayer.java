@@ -7,16 +7,20 @@ import java.util.Scanner;
 
 public class HumanPlayer implements Player {
 
-    private final Logger logger = LoggerFactory.getLogger("human");
+    private final Logger logger = LoggerFactory.getLogger("HumanPlayer");
 
     @Override
     public long askNextGuess() {
         logger.log("Nombre :");
-        Scanner sc = new Scanner(System.in);
-        long number = sc.nextInt();
-        sc.nextLine();
-        logger.log("Vous avez choisi : " + number);
-        return number;
+        try {
+            Scanner sc = new Scanner(System.in);
+            long number = sc.nextInt();
+            sc.nextLine();
+            return number;
+        } catch(Exception e) {
+            logger.log("Erreur !");
+            return -1;
+        }
     }
 
     @Override
