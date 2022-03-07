@@ -26,10 +26,17 @@ public class Simulation {
         }
     }
 
-    public void loopUntilPlayerSucceed() {
+    public void loopUntilPlayerSucceed(long n) {
         boolean running = false;
-        while (!running) {
+        int i = 0;
+        long begin = System.currentTimeMillis();
+        while (!running && i < n) {
             running = nextRound();
+            i += 1;
         }
+        long time = (System.currentTimeMillis() - begin);
+        int minute = (int) ((time % 3600) / 60);
+        int second = (int) time % 60;
+        System.out.println(minute + ":" + second);
     }
 }
