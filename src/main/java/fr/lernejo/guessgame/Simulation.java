@@ -3,6 +3,9 @@ package fr.lernejo.guessgame;
 import fr.lernejo.logger.Logger;
 import fr.lernejo.logger.LoggerFactory;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Simulation {
     private final Logger logger = LoggerFactory.getLogger("simulation");
     private final Player player;
@@ -35,8 +38,7 @@ public class Simulation {
             i += 1;
         }
         long time = (System.currentTimeMillis() - begin);
-        int minute = (int) ((time % 3600) / 60);
-        int second = (int) time % 60;
-        System.out.println(minute + ":" + second);
+        logger.log(running ? "Vous avez gagné !" : "Vous avez perdu !");
+        logger.log("Temps : "  + new SimpleDateFormat("mm:ss:SSS").format(new Date(time)));
     }
 }
